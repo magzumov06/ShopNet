@@ -8,8 +8,8 @@ public interface IProductServices
     List<Product> GetAllProducts();
     void UpdateProduct(int Id , Product product);
     void DeleteProduct(int Id);
-    void SearchProductByName(string Name);
-    void GetProductsByCategory(int categoryId);
-    void GetProductsBySeller(int sellerId);
+    List<Product> SearchProductByName(string Name);
+    List<Product> GetProductsByCategory(int categoryId);
+    List<Product> GetProductsBySeller(int sellerId);
     
 }
