@@ -15,7 +15,7 @@ public class ProducteServices:IProductServices
             using var connection = new NpgsqlConnection(connectionString);
             connection.Open();
             const string query = @"
-            insert into producte (name,price,quantity,categoryId,sellerId)
+            insert into products (name,price,quantity,categoryId,sellerId)
             values  (@name,@price,@quantity,@categoryId,@sellerId);
 ";
             using var command = new NpgsqlCommand(query, connection);
@@ -47,7 +47,7 @@ public class ProducteServices:IProductServices
         {
             using var connection = new NpgsqlConnection(connectionString);
             connection.Open();
-            const string query = "select * from producte";
+            const string query = "select * from products";
             using var command = new NpgsqlCommand(query, connection);
             using var reader = command.ExecuteReader();
             List<Product> products = new();
@@ -89,7 +89,7 @@ public class ProducteServices:IProductServices
             using var connection = new NpgsqlConnection(connectionString);
             connection.Open();
             const string query = @"
-        select * from producte where id = @id;
+        select * from products where id = @id;
 ";
             using var command = new NpgsqlCommand(query, connection);
             command.Parameters.AddWithValue("@id", Id);
@@ -100,7 +100,7 @@ public class ProducteServices:IProductServices
             }
             reader.Close();
             const string query1 = @"
-        update producte set name=@name,price=@price,quantity=@quantity,categoryId=@categoryId,sellerId=@sellerId where id=@id;
+        update products set name=@name,price=@price,quantity=@quantity,categoryId=@categoryId,sellerId=@sellerId where id=@id;
 ";
             using var command1 = new NpgsqlCommand(query1, connection);
             command1.Parameters.AddWithValue("@id", Id);
@@ -134,7 +134,7 @@ public class ProducteServices:IProductServices
             using var connection = new NpgsqlConnection(connectionString);
             connection.Open();
             const string query = @"
-            delete from producte 
+            delete from products 
             where id = @id;
 ";
             using var command = new NpgsqlCommand(query, connection);
@@ -162,7 +162,7 @@ public class ProducteServices:IProductServices
         {
             using var connection = new NpgsqlConnection(connectionString);
             connection.Open();
-            const string query = "select * from producte where name like @name;";
+            const string query = "select * from products where name like @name;";
             using var command = new NpgsqlCommand(query, connection);
             command.Parameters.AddWithValue("name", $"%{Name}%");
             using var reader = command.ExecuteReader();
@@ -204,7 +204,7 @@ public class ProducteServices:IProductServices
         {
             using var connection = new NpgsqlConnection(connectionString);
             connection.Open();
-            const string query = "select * from producte where categoryId = @categoryId;";
+            const string query = "select * from products where categoryId = @categoryId;";
             using var command = new NpgsqlCommand(query, connection);
             command.Parameters.AddWithValue("@categoryId", categoryId);
             using var reader = command.ExecuteReader();
@@ -246,7 +246,7 @@ public class ProducteServices:IProductServices
         {
             using var connection = new NpgsqlConnection(connectionString);
             connection.Open();
-            const string query = "select * from producte where sellerId = @sellerId;";
+            const string query = "select * from products where sellerId = @sellerId;";
             using var command = new NpgsqlCommand(query, connection);
             command.Parameters.AddWithValue("@sellerId", sellerId);
             using var reader = command.ExecuteReader();

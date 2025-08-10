@@ -146,8 +146,5 @@ public class SellerServices: ISellerServices
         }
     }
 
-    public void GetTopSellingProducts()
-    {
-        throw new NotImplementedException();
-    }
+
 }
