@@ -75,7 +75,7 @@ public class CategorieServices: ICategorieServices
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
-            throw;
+            return new List<Categorie>();
         }
     }
 

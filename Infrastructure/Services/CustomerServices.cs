@@ -75,7 +75,7 @@ public class CustomerServices : ICustomerServices
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
-            throw;
+            return new List<Customer>();
         }
     }
 

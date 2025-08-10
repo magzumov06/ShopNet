@@ -78,7 +78,7 @@ public class ProducteServices:IProductServices
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
-            throw;
+            return new List<Product>();
         }
     }
 
