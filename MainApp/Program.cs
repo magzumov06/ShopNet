@@ -137,7 +137,7 @@ while (true)
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Хатоги:"+e.Message);
             }
             break;
         case 5:
@@ -155,7 +155,7 @@ while (true)
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Хатоги:"+e.Message);
                 goto case 6;
             }
             break;
@@ -219,107 +219,182 @@ while (true)
         case 15:
             break;
         case 16:
-            Console.Write("Id муштариро барои навсози кардан ворид кунед: ");
-            int updId = int.Parse(Console.ReadLine());
-            Console.Write("Номро ворид кунед: ");
-            string newName = Console.ReadLine();
-            Console.Write("Насабро ворид кунед: ");
-            string newlastName = Console.ReadLine();
-            Console.Write("Email-ро орид кунед: ");
-            string newemail = Console.ReadLine();
-            Console.Write("Рақами телфони муштариро ворид кунед: ");
-            string newphone = Console.ReadLine();
-            Customer updcustomer = new Customer()
+            try
             {
-                FirstName = newName,
-                LastName = newlastName,
-                Email = newemail,
-                Phone = newphone
-            };
-            customerServices.UpdateCustomer(updId, updcustomer);
+                Console.Write("Id муштариро барои навсози кардан ворид кунед: ");
+                int updId = int.Parse(Console.ReadLine());
+                Console.Write("Номро ворид кунед: ");
+                string newName = Console.ReadLine();
+                Console.Write("Насабро ворид кунед: ");
+                string newlastName = Console.ReadLine();
+                Console.Write("Email-ро орид кунед: ");
+                string newemail = Console.ReadLine();
+                Console.Write("Рақами телфони муштариро ворид кунед: ");
+                string newphone = Console.ReadLine();
+                Customer updcustomer = new Customer()
+                {
+                    FirstName = newName,
+                    LastName = newlastName,
+                    Email = newemail,
+                    Phone = newphone
+                };
+                customerServices.UpdateCustomer(updId, updcustomer);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Хатоги:"+e.Message);
+                goto case 16;
+            }
             break;
         case 17:
-            Console.WriteLine("ID фурушандаро барои навсози кардан ворид кунед: ");
-            int sellerIdp = int.Parse(Console.ReadLine());
-            Console.Write("Номро ворид кунед: ");
-            string selName = Console.ReadLine();
-            Console.Write("Насабро ворид кунед: ");
-            string sellastName = Console.ReadLine();
-            Console.Write("Номи мағозаро ворид кунед: ");
-            string shopName = Console.ReadLine();
-            Console.Write("Email-ро ворид кунед: ");
-            string newemailsellr = Console.ReadLine();
-            Seller updateseller = new Seller()
+            try
             {
-                FirstName = selName,
-                LastName = sellastName,
-                ShopName = shopName,
-                Email = newemailsellr
-            };
-            sellerServices.UpdateSeller(sellerIdp, updateseller);
+                Console.WriteLine("ID фурушандаро барои навсози кардан ворид кунед: ");
+                int sellerIdp = int.Parse(Console.ReadLine());
+                Console.Write("Номро ворид кунед: ");
+                string selName = Console.ReadLine();
+                Console.Write("Насабро ворид кунед: ");
+                string sellastName = Console.ReadLine();
+                Console.Write("Номи мағозаро ворид кунед: ");
+                string shopName = Console.ReadLine();
+                Console.Write("Email-ро ворид кунед: ");
+                string newemailsellr = Console.ReadLine();
+                Seller updateseller = new Seller()
+                {
+                    FirstName = selName,
+                    LastName = sellastName,
+                    ShopName = shopName,
+                    Email = newemailsellr
+                };
+                sellerServices.UpdateSeller(sellerIdp, updateseller);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Хатоги:"+e.Message);
+                goto case 17;
+            }
             break;
         case 18:
-            Console.WriteLine("Id категорияро барои навсози кардан ворид кунед: ");
-            int newid = int.Parse(Console.ReadLine());
-            Console.Write("Номи категорияро ворид кунед:");
-            string newname = Console.ReadLine();
-            Console.Write("Тавсифро ворид кунед: ");
-            string newdescription = Console.ReadLine();
-            Categorie update = new Categorie()
+            try
             {
-                Name = newname,
-                Description = newdescription
-            };
-            categorieServices.UpdateCategories(newid, update);
+                Console.WriteLine("Id категорияро барои навсози кардан ворид кунед: ");
+                int newid = int.Parse(Console.ReadLine());
+                Console.Write("Номи категорияро ворид кунед:");
+                string newname = Console.ReadLine();
+                Console.Write("Тавсифро ворид кунед: ");
+                string newdescription = Console.ReadLine();
+                Categorie update = new Categorie()
+                {
+                    Name = newname,
+                    Description = newdescription
+                };
+                categorieServices.UpdateCategories(newid, update);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Хатоги:"+e.Message);
+                goto case 18;
+            }
             break;
         case 19:
-            Console.Write("ID маҳсулотро барои навсози кардан ворид кунед: ");
-            int updateIDpr = int.Parse(Console.ReadLine());
-            Console.Write("Номи маҳсулотро ворид кунед:");
-            string newnamepr = Console.ReadLine();
-            Console.Write("Нархи маҳсулотро ворид кунед:  ");
-            decimal newpricepr = decimal.Parse(Console.ReadLine());
-            Console.Write("Миқдори маҳсулотро ворид кунед: ");
-            int newqtypr = int.Parse(Console.ReadLine());
-            Console.WriteLine("ID категорияро ворид кунед:");
-            int newcId = int.Parse(Console.ReadLine());
-            Console.WriteLine("ID фурушандаро ворид кунед: ");
-            int newsellerId = int.Parse(Console.ReadLine());
-            Product newProduct = new Product()
+            try
             {
-                Name = newnamepr,
-                Quantity = newqtypr,
-                Price = newpricepr,
-                CategoryId = newcId,
-                SellerId = newsellerId
-            };
-            producteServices.UpdateProduct(updateIDpr,newProduct);
+                Console.Write("ID маҳсулотро барои навсози кардан ворид кунед: ");
+                int updateIDpr = int.Parse(Console.ReadLine());
+                Console.Write("Номи маҳсулотро ворид кунед:");
+                string newnamepr = Console.ReadLine();
+                Console.Write("Нархи маҳсулотро ворид кунед:  ");
+                decimal newpricepr = decimal.Parse(Console.ReadLine());
+                Console.Write("Миқдори маҳсулотро ворид кунед: ");
+                int newqtypr = int.Parse(Console.ReadLine());
+                Console.WriteLine("ID категорияро ворид кунед:");
+                int newcId = int.Parse(Console.ReadLine());
+                Console.WriteLine("ID фурушандаро ворид кунед: ");
+                int newsellerId = int.Parse(Console.ReadLine());
+                Product newProduct = new Product()
+                {
+                    Name = newnamepr,
+                    Quantity = newqtypr,
+                    Price = newpricepr,
+                    CategoryId = newcId,
+                    SellerId = newsellerId
+                };
+                producteServices.UpdateProduct(updateIDpr,newProduct);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Хатоги:"+e.Message);
+                throw;
+            }
             break;
         case 20:
             break;
         case 21:
             break;
         case 22:
-            Console.Write("Id муштариро барои ҳазф кардан ворид кунед:");
-            int id=int.Parse(Console.ReadLine());
-            customerServices.DeleteCustomer(id);
+            try
+            {
+                Console.Write("Id муштариро барои ҳазф кардан ворид кунед:");
+                int id=int.Parse(Console.ReadLine());
+                customerServices.DeleteCustomer(id);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Хатоги:"+e.Message);
+                goto case 22;
+            }
             break;
         case 23:
+            try
+            {
+                Console.Write("ID фурушандаро барои ҳазф кардан ворид кунед: ");
+                int sellerIdDelete = int.Parse(Console.ReadLine());
+                sellerServices.DeleteSeller(sellerIdDelete);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Хатоги:"+e.Message);
+                goto case 23;
+            }
             break;
         case 24:
-            Console.Write("Id категорияро барои ҳазф кардан ворид кунед:");
-            int deleteid=int.Parse(Console.ReadLine());
-            customerServices.DeleteCustomer(deleteid);
+            try
+            {
+                Console.Write("Id категорияро барои ҳазф кардан ворид кунед:");
+                int deleteid=int.Parse(Console.ReadLine());
+                customerServices.DeleteCustomer(deleteid);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Хатоги:"+e.Message);
+                goto case 24;
+            }
             break;
         case 25:
-            Console.Write("Id маҳсулотро ворид кунед:");
-            int deleteidproduct=int.Parse(Console.ReadLine());
-            producteServices.DeleteProduct(deleteidproduct);
+            try
+            {
+                Console.Write("Id маҳсулотро ворид кунед:");
+                int deleteidproduct=int.Parse(Console.ReadLine());
+                producteServices.DeleteProduct(deleteidproduct);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Хатоги:"+e.Message);
+                goto case 25;
+            }
             break;
         case 26:
-            Console.Write("Id фармоишро барои ҳазф кардан ворид кунед: ");
-            int delId=int.Parse(Console.ReadLine());
-            orderServices.DeleteOrder(delId);
+            try
+            {
+                Console.Write("Id фармоишро барои ҳазф кардан ворид кунед: ");
+                int delId=int.Parse(Console.ReadLine());
+                orderServices.DeleteOrder(delId);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Хатоги:"+e.Message);
+               goto case 26;
+            }
             break;
         case 0:
             return;
